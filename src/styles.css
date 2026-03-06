@@ -5,6 +5,9 @@
   --secondary-color: #8b7bb4;
   --accent-color: #f4a261;
   --light-bg: #f8f4f9;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
 }
 
 body {
@@ -202,4 +205,43 @@ body {
 .accordion-button:not(.collapsed) {
   background-color: var(--light-bg);
   color: var(--primary-color);
+}
+
+/* Success animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success-checkmark {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Button loading states */
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+/* Print styles */
+@media print {
+  .mobile-bottom-nav,
+  .btn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
 }

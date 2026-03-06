@@ -51,15 +51,18 @@ function Schedule() {
       <h1 className="mb-4 text-center">Class Schedule</h1>
       
       {loading ? (
-        <div className="text-center py-5">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
+        <LoadingSpinner message="Loading schedule..." />
       ) : error ? (
-        <Alert variant="danger">{error}</Alert>
+        <Alert variant="danger" className="text-center p-4">
+          <h4 className="mb-3">Unable to Load Schedule</h4>
+          <p className="mb-3">{error}</p>
+          <Button variant="outline-danger" onClick={handleRetry}>
+            Try Again
+          </Button>
+        </Alert>
       ) : sessions.length === 0 ? (
         <div className="text-center py-5">
+          <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📅</div>
           <h3 className="text-muted">No upcoming classes scheduled</h3>
           <p className="text-muted">Check back soon for new sessions!</p>
         </div>

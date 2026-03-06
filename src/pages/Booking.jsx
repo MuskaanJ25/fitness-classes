@@ -107,9 +107,9 @@ function Booking() {
   if (success) {
     return (
       <Container className="py-5">
-        <Card className="text-center p-4">
+        <Card className="text-center p-4 success-checkmark">
           <div style={{ fontSize: '4rem' }}>✅</div>
-          <h2 className="mb-3">Booking Confirmed!</h2>
+          <h2 className="mb-3 text-success">Booking Confirmed!</h2>
           <p className="mb-4 lead">
             You're registered for <strong>{session?.classType?.name}</strong> on{' '}
             <strong>

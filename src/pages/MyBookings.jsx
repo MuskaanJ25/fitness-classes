@@ -202,28 +202,38 @@ function MyBookings() {
                         </div>
                       </div>
 
-                      <Button
-                        variant="outline-danger"
-                        className="w-100"
-                        onClick={() => handleCancelBooking(booking.id)}
-                        disabled={cancelling === booking.id}
-                      >
-                        {cancelling === booking.id ? (
-                          <>
-                            <Spinner
-                              as="span"
-                              animation="border"
-                              size="sm"
-                              role="status"
-                              aria-hidden="true"
-                              className="me-2"
-                            />
-                            Cancelling...
-                          </>
-                        ) : (
-                          'Cancel Booking'
-                        )}
-                      </Button>
+                      {new Date(booking.session?.startTime) < new Date() ? (
+                        <Button
+                          variant="secondary"
+                          className="w-100"
+                          disabled
+                        >
+                          Past Class
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="outline-danger"
+                          className="w-100"
+                          onClick={() => handleCancelBooking(booking.id)}
+                          disabled={cancelling === booking.id}
+                        >
+                          {cancelling === booking.id ? (
+                            <>
+                              <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                                className="me-2"
+                              />
+                              Cancelling...
+                            </>
+                          ) : (
+                            'Cancel Booking'
+                          )}
+                        </Button>
+                      )}
                     </Card.Body>
                   </Card>
                 </Col>
