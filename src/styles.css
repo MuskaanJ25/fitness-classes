@@ -1,0 +1,205 @@
+/* Mobile-first custom styles on top of Bootstrap */
+
+:root {
+  --primary-color: #6b4c9a;
+  --secondary-color: #8b7bb4;
+  --accent-color: #f4a261;
+  --light-bg: #f8f4f9;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--light-bg);
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+/* Buttons - larger for mobile taps */
+.btn {
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+/* Form controls */
+.form-control, .form-select {
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Spots indicator */
+.spots-available {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.spots-limited {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.spots-full {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* Loading states */
+.loading-spinner {
+  text-align: center;
+  padding: 3rem;
+}
+
+/* Error alerts */
+.alert {
+  border-radius: 12px;
+  border: none;
+}
+
+/* Session Card */
+.session-time {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.session-date {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Bottom nav for mobile */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  z-index: 1000;
+}
+
+.mobile-bottom-nav .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  color: #666;
+}
+
+.mobile-bottom-nav .nav-link.active {
+  color: var(--primary-color);
+}
+
+.mobile-bottom-nav .nav-link i {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Add bottom padding for mobile nav */
+.pb-bottom-nav {
+  padding-bottom: 5rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero {
+    padding: 5rem 2rem;
+    border-radius: 0 0 3rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .hide-bottom-nav {
+    display: none;
+  }
+
+  .pb-bottom-nav {
+    padding-bottom: 0;
+  }
+}
+
+/* Accordion customization in FAQ */
+.accordion-item {
+  border: none;
+  border-radius: 12px !important;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-button {
+  background: white;
+  border-radius: 12px !important;
+  font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--light-bg);
+  color: var(--primary-color);
+}

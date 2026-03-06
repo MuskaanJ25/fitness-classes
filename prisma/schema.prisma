@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://user@localhost:5432/viadb?schema=public"
+}
+
+model ClassType {
+  id               Int       @id @default(autoincrement())
+  name             String
+  description      String
+  durationMinutes  Int
+  level            String
+  location         String
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  sessions         Session[]
+}
+
+model Session {
+  id             Int       @id @default(autoincrement())
+  classId        Int
+  classType      ClassType @relation(fields: [classId], references: [id])
+  startTime      DateTime
+  endTime        DateTime
+  capacity       Int
+  spotsRemaining Int
+  status         String    @default("scheduled") // scheduled, cancelled, completed
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  bookings       Booking[]
+  
+  @@index([startTime])
+  @@index([status])
+}
+
+model Booking {
+  id           Int       @id @default(autoincrement())
+  sessionId    Int
+  session      Session   @relation(fields: [sessionId], references: [id])
+  customerName String
+  email        String
+  phone        String
+  status       String    @default("confirmed") // confirmed, cancelled
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  @@index([email])
+  @@index([sessionId, email])
+}
