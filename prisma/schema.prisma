@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://user@localhost:5432/viadb?schema=public"
+}
+
+model Class {
+  id           Int      @id @default(autoincrement())
+  name         String
+  instructor   String
+  duration     Int      // in minutes
+  intensity    String   // low, medium, high
+  description  String
+  image        String   // color hex or emoji for visual
+  schedule     String   // e.g., "Mon, Wed, Fri at 10AM"
+  capacity     Int      // max participants
+}
